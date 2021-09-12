@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    font-family: 'Roboto', serif;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+/* --- Header Section --- */
+header {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-image: url('https://i.imgur.com/XsAvM66.png');
+    background-size: 320px 320px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+h1 {
+    padding-bottom: 3rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+p {
+    font-weight: 400;
+    text-align: center;
+}
+
+body {
+    overflow-x:hidden;
+}
+
+section {
+    background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+}
+
+.logo_rick {
+    
+    display:flex;
+    align-items: left;
+    width: 50px;
+    height: 50px;
+    padding: 6px;
+}
+
+/* --- Characters Section --- */
+.container { 
+    max-width: 1100px; 
+    margin: auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.container_1 {
+    align-content: flex-start;
+}
+
+.item {
+    height: 100px;
+    width: 100px;
+    color: aqua;
+    font-size: 20px;
+    text-align: center;
+    display: flex;                  
+    flex-direction: column; 
+}
+
+.item_title {
+    height: 50px;
+    width: 150px;
+}
+  
+.item_status {
+    height: 50px;
+    width: 150px;
+}
+
+.card_content {
+    display:flex;
+    flex-wrap: wrap;
+    align-items:center;
+    flex-direction: column;
+}
+
+.card_title {
+    display:flex;
+    height: 70px;
+    width: 145px;
+    font-size: 1rem;
+    font-weight: 900;
+    justify-content: center;
+    align-items:center;
+}
+
+.card_text {
+    text-align: justify;
+    display: flex;
+    height: 70px;
+    width: 145px;
+    margin-left: -8%;
+    font-size: 0.8rem;
+    font-weight: 600;
+    justify-content: flex-start;
+}
+
+.card_text_modal {
+    text-align: justify;
+    display:flex;
+    height: 20px;
+    width: 150px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: 25%;
+    justify-content: flex-start;
+}
+
+.card_desc_modal {
+    display: flex;
+    height: 40px;
+    width: 315px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.sticky {
+    text-align: justify;
+    display: inline-block;
+    position: absolute;
+}
+
+.modal_text {
+    width: 310;
+    height: 95;
+    display: inline-block;
+}
+
+.characters{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 25px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.character-box{
+    position: relative;
+    height: 180px;
+    width: 270px;
+    border: 4px solid #47e31e;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.character{
+    position: relative;
+    height: 120px;
+    width: 240px;
+    border: 2px solid #1ebce3;
+    cursor: pointer;
+    background-color: white;  
+}
+
+.character img{
+    min-width: 49.3%;
+    max-width: 49.3%;
+    height: auto;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+}
+
+.modal_img{
+    min-width: 90%;
+    max-width: 90%;
+    margin: 5%;
+    border-radius: 3%;
+    height: auto;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+}
+
+/* --- Character Modal Window --- */
+.character-info{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 10px;
+    opacity: 0;
+}
+
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    animation: openModal 0.3s ease;
+}
+
+.modal-container{
+    overflow: hidden;
+    width: 350px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.modal-container img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.modal-container h3{
+    margin-top: 0.5rem;
+    line-height: 1;
+}
+
+.modal-container h4{
+  margin-top: 0.2rem;
+  margin-bottom: 0.8rem;
+  line-height: 1;
+}
+
+.modal-container .modal-container-info{
+    padding: 1rem;
+}
+
+/* --- Prev Next Buttons --- */
+.cta{
+    margin: 30px 0;
+    width: 225px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cta button{
+    border: none;
+    background-color: #fffe;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    padding: 0.7rem 1.2rem;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+.cta button:hover{
+    background-color: #dadada;
+}
+
+/* --- Responsive Grid --- */
+
+@media(max-width: 3600px){
+    .characters{
+        grid-template-columns: repeat(5,1fr);
+    }
+
+    .character{
+        height: 145px;
+        width: 290px;
+    }
+}
+
+@media(max-width: 1400px){
+    .characters{
+        grid-template-columns: repeat(4,1fr);
+    }
+
+    .character{
+        height: 145px;
+        width: 290px;
+    }
+}
+
+@media(max-width: 1250px){
+    .characters{
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .character{
+        height: 145px;
+        width: 290px;
+    }
+}
+
+@media(max-width: 1000px){
+    .characters{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .character{
+        height: 145px;
+        width: 290px;
+    }
+}
+
+@media(max-width: 800px){
+    .container .logo{
+        width: 300px;
+        height: 100px;
+    }
+
+    .characters{
+        grid-template-columns: 1fr;
+    }
+
+    .character{
+        height: 145px;
+        width: 290px;
+    }
+}
+
+@keyframes openModal{
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+/* Circle Status  */
+ .circle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    line-height: 200px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 1 auto 40px;
+    margin-left: -20%;
+}
+
+.circle_modal {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    line-height: 200px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 8 auto 40px;
+    margin-left: 13%;
+}
+
+.Alive {
+  background-color: #2AC769;
+}
+
+.Dead {
+  background-color: #e22e2e;
+}
+
+.unknown {
+  background-color: #A0A3A8;
+}
