@@ -18,25 +18,23 @@ fetch(`https://rickandmortyapi.com/api/character/`)
                 console.log(data);
                 var classNam = "";
                 characters.innerHTML = data.results.map(item => `
-                        <div class = 'character card_content'>
-                            <img src = '${item.image}' /> 
+                        <div class = 'character'>
+                            <img  src = '${item.image}' /> 
+
                             <div class = 'character-info' data-characterID = '${item.id}'>
-                                    <h3>${item.name}</h3>
+                                    <span class='char-name'>${item.name}</span>                  
                             </div>
-                            <div>
-                                <h5 class='card_title'>${item.name}</h5>              
-                                <div class="sticky">                 
-                                    <div class='circle ${classNam = item.status}'></div>
-                                    <h4 class='card_text'>${item.status}</h4>                      
-                                </div>     
+                            <div class='character-status'>                       
+                                <div class='circle ${classNam = item.status}'></div>
+                                <span class='char-desc'>${item.status}</span>                                                        
                             </div>   
-                        </div>       
+                        </div>             
             `).join('');
             })
         }
     });
 
-// Get Character by ID
+// Get Character by ID       
 const getCharacterById = character => {
     fetch(`https://rickandmortyapi.com/api/character/${character}`)
       
@@ -66,15 +64,20 @@ const addCharacterToDOM = character => {
                 <div class = 'modal-container-info'>    
                                        
                     <div class='modal_text'>     
-                        <h4>${character.name}</h4>            
-                        <h5>${character.status} - ${character.species}</h5>                      
-                    </div>     
-                    
-                    <div class='modal_text'> 
-                        <p class='card_desc_modal'>Gender: ${character.gender}</p>
-                        <p class='card_desc_modal'>Location: ${character.location.name}</p>
-                        <p class='card_desc_modal'>Number of episodes appeared: ${character.episode.length}</p>  
+                        <span class="modal_title" >${character.name}</span>                                                     
+                    </div>    
+                    <div class='modal_text'>     
+                        <div class='circle_modal_text ${classNam2 = character.status}'></div>
+                        <span class="modal_status">${character.status} - ${character.species}</h5>                      
                     </div>  
+                    
+                    <div class='modal_rectangle'> 
+                        <div class='modal_info'> 
+                            <p class='modal_desc'>Gender: ${character.gender}</p>
+                            <p class='modal_desc'>Location: ${character.location.name}</p>
+                            <p class='modal_desc'>Number of episodes appeared: ${character.episode.length}</p>  
+                        </div>  
+                    </div>    
                 </div>
             </div>
         </div>
@@ -106,17 +109,22 @@ window.addEventListener('click', e => {
     }
 });
 
-// Next clicking
+// Next click
 let counter = 1;
 next.addEventListener('click', () => {
 
-    if (counter == 34)
+    if (counter == 33) //disable btn when counter reaches last page
     {
         document.getElementById('next').disabled = true;
+        var element = document.getElementById("next");
+        document.getElementById("next").classList.remove('cta-enable');
+        element.classList.add("cta-disable");
     }
-    else
-    {
         document.getElementById("prev").disabled = false;
+        var element = document.getElementById("prev");
+        document.getElementById("prev").classList.remove('cta-disable');
+        element.classList.add("cta-enable");
+
         fetch(`https://rickandmortyapi.com/api/character/?page=${++counter}`)       
         .then(res => {
             if (!res.ok) {
@@ -131,36 +139,38 @@ next.addEventListener('click', () => {
                     console.log(data);
                     var classNam = "";
                     characters.innerHTML = data.results.map(item => `
-                            <div class = 'character card_content'>
-                                <img src = '${item.image}' /> 
-                                <div class = 'character-info' data-characterID = '${item.id}'>
-                                        <h3>${item.name}</h3>
-                                </div>
-                                <div>
-                                    <h5 class='card_title'>${item.name}</h5>              
-                                    <div class="sticky">                 
-                                        <div class='circle ${classNam = item.status}'></div>
-                                        <h4 class='card_text'>${item.status}</h4>                      
-                                    </div>     
-                                </div>   
-                            </div>                 
+                            <div class = 'character'>
+                            <img  src = '${item.image}' /> 
+
+                            <div class = 'character-info' data-characterID = '${item.id}'>
+                                    <span class='char-name'>${item.name}</span>         
+                            </div>
+                            <div class='character-status'>                       
+                                <div class='circle ${classNam = item.status}'></div>
+                                <span class='char-desc'>${item.status}</span>                                                        
+                            </div>   
+                        </div>               
                 `).join('');
                 })
             }
-        });
-    }    
+        });    
 });
 
-// Prev clicking
+// Prev click
 prev.addEventListener('click', () => {
-
-    if (counter == 1)
+    
+    if (counter == 2)
     {
         document.getElementById('prev').disabled = true;
+        var element = document.getElementById("prev");
+        document.getElementById("prev").classList.remove('cta-enable');
+        element.classList.add("cta-disable");
     }
-    else
-    {
         document.getElementById("next").disabled = false;
+        var element = document.getElementById("next");
+        document.getElementById("next").classList.remove('cta-disable');
+        element.classList.add("cta-enable");
+
         fetch(`https://rickandmortyapi.com/api/character/?page=${--counter}`)
         .then(res => {
             if (!res.ok) {
@@ -175,24 +185,21 @@ prev.addEventListener('click', () => {
                     console.log(data);
                     var classNam = "";
                     characters.innerHTML = data.results.map(item => `
-                            <div class = 'character card_content'>
-                                <img src = '${item.image}' /> 
-                                <div class = 'character-info' data-characterID = '${item.id}'>
-                                        <h3>${item.name}</h3>
-                                </div>
-                                <div>
-                                    <h5 class='card_title'>${item.name}</h5>              
-                                    <div class="sticky">                 
-                                        <div class='circle ${classNam = item.status}'></div>
-                                        <h4 class='card_text'>${item.status}</h4>                      
-                                    </div>     
-                                </div>   
-                            </div>          
+                            <div class = 'character'>
+                            <img  src = '${item.image}' /> 
+
+                            <div class = 'character-info' data-characterID = '${item.id}'>
+                                    <span class='char-name'>${item.name}</span>                           
+                            </div>
+                            <div class='character-status'>                       
+                                <div class='circle ${classNam = item.status}'></div>
+                                <span class='char-desc'>${item.status}</span>                                                        
+                            </div>   
+                        </div>             
                 `).join('');
                 })
             }
-        });
-    }    
+        });       
 });
 
 

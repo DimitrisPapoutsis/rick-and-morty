@@ -2,11 +2,12 @@
 <html>
     
     <head>
-        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Rick and Morty</title>
         <link rel="shortcut icon" type="image/x-icon" href=".\img\rick.png">
         <link rel="stylesheet" href="css/styles.css">
         <img class="logo_rick" src=".\img\rick.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
     <header>
@@ -16,18 +17,16 @@
     
     <body>
         <section>
-            <div class="container container_1">
+            <div class="container">
                 <div id="heading"></div>
                 <div id="characters" class="characters"></div>
                 <div id="single-character"></div>
                     <div class="cta">
-                        <button class="prev" id="prev">
-                            <i class="fas fa-arrow-left"></i>
-                            Prev
+                        <button class="prev cta-disable" id="prev">
+                            <i class="fa fa-angle-left" style="font-size:30px"></i>         
                         </button>
                         <button class="next" id="next">
-                            Next
-                            <i class="fas fa-arrow-right"></i>
+                            <i class="fa fa-angle-right" style="font-size:30px"></i>
                         </button>
                     </div>
             </div>
