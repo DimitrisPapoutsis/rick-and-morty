@@ -26,7 +26,7 @@ fetch(`https://rickandmortyapi.com/api/character/`)
                             </div>
                             <div class='character-status'>                       
                                 <div class='circle ${classNam = item.status}'></div>
-                                <span class='char-desc'>${item.status}</span>                                                        
+                                <span class='char-desc'>${item.status} - ${item.species}</span>                                                        
                             </div>   
                         </div>             
             `).join('');
@@ -57,6 +57,16 @@ const getCharacterById = character => {
 // Load character to Modal
 const addCharacterToDOM = character => {
     var classNam2 = "";
+    var classNam3 = "";
+    if (character.gender == "Male")
+    {
+        classNam3 = "fa-mars";
+    }
+    else if (character.gender == "Female")
+    {
+        classNam3 = "fa-venus";
+    }
+    
     singleCharacter.innerHTML = `
         <div class = 'modal' id = 'modal'>
             <div class = 'modal-container'>        
@@ -73,8 +83,8 @@ const addCharacterToDOM = character => {
                     
                     <div class='modal_rectangle'> 
                         <div class='modal_info'> 
-                            <p class='modal_desc'>Gender: ${character.gender}</p>
-                            <p class='modal_desc'>Location: ${character.location.name}</p>
+                            <p class='modal_desc'>Gender: <span class='fa ${classNam3}'></span> ${character.gender}</p>
+                            <p class='modal_desc'>Last Seen Location: ${character.location.name}</p>
                             <p class='modal_desc'>Number of episodes appeared: ${character.episode.length}</p>  
                         </div>  
                     </div>    

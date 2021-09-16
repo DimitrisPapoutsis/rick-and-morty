@@ -82,12 +82,9 @@ section {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    align-items: flex-start;
     padding: 12px;
     width: 230px;
     height: 100px;
-    left: 0px;
-    top: 0px;
     background: #FFFFFF;
     box-shadow: 0px 0px 16px rgba(37, 40, 43, 0.1);
     border-radius: 4px;
@@ -104,20 +101,16 @@ section {
 .character-info {
     height: 50px;
     width: 150px;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content:center;
-    align-items: center;
     cursor: pointer;
+    display: flex;
+    justify-content: left;
+    align-items: center;
 }
 
 .character-status {
-    top: 0;
-    left: 0;
     display: flex;
-    justify-content:center;
-    align-items: center;
+    justify-content: left;
+    align-items: flex-start;
     height: 20px;
     width: 150px; 
 }
@@ -127,6 +120,7 @@ section {
     font-style: normal;
     font-weight: bold;
     font-size: 16px;
+    margin: 9%;
 }
 
 .char-desc {
@@ -135,6 +129,7 @@ section {
     font-weight: normal;
     font-size: 12px;
     align-items: left;
+    padding-left: 32px;
 }
 
 /* --- Character Modal Window --- */
@@ -146,10 +141,12 @@ section {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.75);
     animation: openModal 0.3s ease;
+    z-index: 1;
 }
 
 .modal-container{
     margin: 40px auto ;
+    margin-top: 40px;
     width: 433px;
     height: 431px;
     background: #FFFFFF;
@@ -204,7 +201,7 @@ section {
 .modal_rectangle {
     width: 433px;
     height: 152px;
-    margin-top: 15%;
+    margin-top: 6%;
     background: #03B0C8;
     border-radius: 0px 0px 4px 4px;
     padding-top: 16px;
@@ -223,12 +220,12 @@ section {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    align-items: flex-start;  
+    align-items: center;  
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
     font-size: 22px;
-    line-height: 24px;
+    line-height: 14px;
 }
 
 .modal_desc {
@@ -236,19 +233,26 @@ section {
     padding: 5px;
     font-family: Roboto;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 700;
     font-size: 16px;
     line-height: 24px;
     color: #FFFFFF;
+}
+
+.Male {
+    background-repeat: no-repeat;
+    background-size: 10% 10%;
+    background-image: url("https://cdn.pixabay.com/photo/2012/04/23/17/06/male-39108_1280.png");
 }
 
 /* --- Prev Next Buttons --- */
 .cta{
     width: 0px;
     margin: 30px 0;
-    width: 225px;
+    width: 125px;
     display: flex;
     justify-content: space-evenly;
+    align-content: left;
 }
 
 .cta button{
@@ -258,10 +262,12 @@ section {
     font-weight: bold;
     font-size: 1.1rem;
     letter-spacing: 1px;
-    padding: 0.7rem 1.2rem;
+    /* padding: 0.7rem 1.2rem; */
+    padding: 0.1rem 0.8rem;
     border-radius: 4px;
     outline: none;
     cursor: pointer;
+    margin-inline: 1px;
 }
 
 .cta button:hover{
@@ -291,6 +297,7 @@ section {
     text-transform: uppercase;
     font-weight: 700;
     margin: 1 auto 40px;
+    margin-top: 0.3%;
     margin-left: -20%;
 }
 
@@ -302,28 +309,29 @@ section {
     border-radius: 50%;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
-    text-align: center;
+    text-align: left;
     color: white;
     font-size: 16px;
     text-transform: uppercase;
     font-weight: 700;
     margin: 1 auto 40px;
-    margin-left: -18%;
-    margin-top: 5.5%;
+    margin-left: -18px !important;
+    margin-top: 6%;
 }
 
 .Alive {
   background-color: #2AC769;
+  margin-left: 5%;
 }
 
 .Dead {
   background-color: #e22e2e;
-  margin-right: 1%;
+  margin-left: 5%;
 }
 
 .unknown {
   background-color: #A0A3A8;
-  margin-right: 8%;
+  margin-left: 5%;
 }
 
 /* --- Responsive Grid --- */
@@ -396,8 +404,8 @@ section {
     /*  responsive modal window */
     .modal-container{
         margin-top: 60px;
-        width: 403px;
-        height: 401px;
+        width: 323px;
+        height: 321px;
     }
 
     .modal img {
@@ -406,7 +414,7 @@ section {
     }
 
     .modal_rectangle {
-        width: 403px;
+        width: 323px;
     }
 
     section {
